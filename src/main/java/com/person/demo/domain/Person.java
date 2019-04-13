@@ -1,8 +1,6 @@
 package com.person.demo.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -10,7 +8,7 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+
 public class Person {
 
     @Id
@@ -30,19 +28,43 @@ public class Person {
     @OneToOne
     PhoneNumbers phoneNumbers;
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public String getFirstName() {
+        return firstName;
+    }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
+    public String getLastName() {
+        return lastName;
+    }
 
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
+    public Notes getNotes() {
+        return notes;
+    }
 
+    public void setNotes(Notes notes) {
+        this.notes = notes;
+    }
 
+    public PhoneNumbers getPhoneNumbers() {
+        return phoneNumbers;
+    }
 
-
-
-
-
-
-
+    public void setPhoneNumbers(PhoneNumbers phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
+    }
 }
