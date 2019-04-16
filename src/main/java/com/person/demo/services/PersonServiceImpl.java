@@ -14,6 +14,7 @@ import java.util.Set;
 @Service
 public class PersonServiceImpl implements PersonService {
 
+    PersonCommand personCommand;
     PersonsRepository personsRepository;
     PersonCommandToPerson personCommandToPerson;
     PersonToPersonCommand personToPersonCommand;
@@ -32,6 +33,9 @@ public class PersonServiceImpl implements PersonService {
         return personSet;
     }
 
+
+
+    @Override
     @Transactional
     public PersonCommand savePersonCommand(PersonCommand personCommand) {
         Person person = personCommandToPerson.convert(personCommand);
