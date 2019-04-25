@@ -21,9 +21,6 @@ public class dataLoad implements ApplicationListener<ContextRefreshedEvent> {
 
     public void init() {
         personsRepository.saveAll(getPersons());
-
-
-
     }
 
     public Set<Person> getPersons() {

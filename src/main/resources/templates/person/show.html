@@ -17,37 +17,33 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<!--/*@thymesVar id="firstName" type="com.person.demo.domain.Person"*/-->
-<div class="container-fluid" style="margi-top: 20px">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+<!--/*@thymesVar id="person" type="com.person.demo.domain.Person"*/-->
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="pannel-group">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h1 class="panel-title">ЛЮДИ</h1>
+                    <h1 class="panel-title">Edit Person Information</h1>
                 </div>
                 <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
 
+                            <tr>
+                                <p>First Name</p>
+                                <p th:text="${person.firstName}"><b>Test</b></p>
+                                <p>Last Name</p>
+                                <p th:text="${person.lastName}"><b>Test</b></p>
+                            </tr>
+                            <p><a href="/persons">Назад</a></p>
+                        </div>
 
-                    <table class="table table-hover">
-                        <thead class="thead-inverse">
-                        <tr>
-                            <th>Фамилия</th>
-                            <th>Имя</th>
-                        </tr>
-                        </thead>
-
-                        <tr th:each="person : ${persons}">
-
-                            <td th:text="${person.firstName}">123</td>
-                            <td th:text="${person.lastName}">Tasty Goodnees</td>
-                        </tr>
-                    </table>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>
-</div>
+
 </div>
 </body>
 </html>

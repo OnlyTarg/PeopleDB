@@ -1,8 +1,7 @@
 package com.person.demo.commands;
 
-import lombok.Getter;
+
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @NoArgsConstructor
 
