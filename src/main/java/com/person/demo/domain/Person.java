@@ -8,6 +8,8 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 
 public class Person {
 
@@ -20,6 +22,8 @@ public class Person {
     @Column(name = "Имя")
     String lastName;
 
+    @Column(name = "Mobile")
+    String mobile;
 
 
     @OneToOne
@@ -28,43 +32,5 @@ public class Person {
     @OneToOne
     PhoneNumbers phoneNumbers;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public Notes getNotes() {
-        return notes;
-    }
-
-    public void setNotes(Notes notes) {
-        this.notes = notes;
-    }
-
-    public PhoneNumbers getPhoneNumbers() {
-        return phoneNumbers;
-    }
-
-    public void setPhoneNumbers(PhoneNumbers phoneNumbers) {
-        this.phoneNumbers = phoneNumbers;
-    }
 }

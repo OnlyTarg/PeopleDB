@@ -23,6 +23,7 @@ public class PersonCommandToPerson implements Converter<PersonCommand, Person> {
         person.setId(source.getId());
         person.setFirstName(source.getFirstName());
         person.setLastName(source.getLastName());
+        person.setMobile(source.getMobile());
         return person;
     }
 }

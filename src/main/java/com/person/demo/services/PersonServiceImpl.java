@@ -5,10 +5,13 @@ import com.person.demo.converters.PersonCommandToPerson;
 import com.person.demo.converters.PersonToPersonCommand;
 import com.person.demo.domain.Person;
 import com.person.demo.repositories.PersonsRepository;
+import javassist.NotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -42,6 +45,28 @@ public class PersonServiceImpl implements PersonService {
         personsRepository.save(person);
         return personToPersonCommand.convert(person);
     }
+
+    @Override
+    public Set<Person> findAll() {
+        Set<Person> persons = new HashSet<>();
+        Iterator<Person> iterator = personsRepository.findAll().iterator();
+        while (iterator.hasNext()) {
+            persons.add(iterator.next());
+        }
+        //it's the same, but in short
+        //personsRepository.findAll().iterator().forEachRemaining(persons::add);
+        return persons;
+    }
+
+    @Override
+    public Person findById(Long id) throws NotFoundException {
+        Optional<Person> optionalPerson = personsRepository.findById(id);
+        if (!optionalPerson.isPresent()){
+            throw new NotFoundException("Person with id - " + id + " not found");
+        }
+        Person person = optionalPerson.get();
+        return person;
+}
 
 
 }

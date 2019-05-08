@@ -5,6 +5,7 @@ import com.person.demo.commands.PersonCommand;
 import com.person.demo.domain.Person;
 import com.person.demo.repositories.PersonsRepository;
 import com.person.demo.services.PersonService;
+import javassist.NotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.stereotype.Controller;
@@ -20,23 +21,21 @@ import java.util.HashSet;
 @AllArgsConstructor
 @Data
 public class PersonController {
-    PersonsRepository personsRepository;
     PersonService personService;
 
 
 
-    @RequestMapping("/persons")
+    @RequestMapping({"/persons","/","/index"})
     public String persons (Model model){
-        model.addAttribute("persons", personsRepository.findAll());
+        model.addAttribute("persons", personService.findAll());
         return "/index";
     }
 
 
 
-    @RequestMapping(value = "/persons/new")
+    @RequestMapping(value = "/person/new")
     public String newPerson(Model model) {
         model.addAttribute("person", new PersonCommand());
-        model.addAttribute("p",new Person());
         return "/person/personform";
     }
 
@@ -47,10 +46,16 @@ public class PersonController {
         return "redirect:/persons";
     }
 
-    @RequestMapping(value = "/persons/show/{id}")
-    public String showbyID(@PathVariable String id, Model model) {
-        model.addAttribute("person", personsRepository.findById(new Long(id)).get());
+    @RequestMapping(value = "/person/show/{id}")
+    public String showbyID(@PathVariable String id, Model model) throws NotFoundException {
+        model.addAttribute("person", personService.findById(Long.valueOf(id)));
         return "person/show";
+    }
+
+    @RequestMapping(value = "/persons/{id}/update", method = RequestMethod.GET)
+    public String update(@PathVariable String id, Model model) {
+        model.addAttribute("person", new PersonCommand());
+        return "redirect: /person/personform";
     }
 
 
