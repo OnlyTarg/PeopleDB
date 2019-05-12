@@ -13,7 +13,7 @@ import java.util.Set;
 
 @Component
 @AllArgsConstructor
-public class dataLoad implements ApplicationListener<ContextRefreshedEvent> {
+public class DataLoad implements ApplicationListener<ContextRefreshedEvent> {
     NotesRepositories notesRepositories;
     PersonsRepository personsRepository;
 

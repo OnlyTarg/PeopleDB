@@ -3,7 +3,6 @@ package com.person.demo.domain;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @NoArgsConstructor

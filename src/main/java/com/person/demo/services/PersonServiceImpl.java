@@ -64,8 +64,7 @@ public class PersonServiceImpl implements PersonService {
         if (!optionalPerson.isPresent()){
             throw new NotFoundException("Person with id - " + id + " not found");
         }
-        Person person = optionalPerson.get();
-        return person;
+        return optionalPerson.get();
 }
 
 

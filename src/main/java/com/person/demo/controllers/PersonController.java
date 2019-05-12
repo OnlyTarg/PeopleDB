@@ -2,20 +2,15 @@ package com.person.demo.controllers;
 
 
 import com.person.demo.commands.PersonCommand;
-import com.person.demo.domain.Person;
-import com.person.demo.repositories.PersonsRepository;
+
 import com.person.demo.services.PersonService;
 import javassist.NotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.HashSet;
 
 @Controller
 @AllArgsConstructor
@@ -39,7 +34,8 @@ public class PersonController {
         return "/person/personform";
     }
 
-    @RequestMapping(name="person", method = RequestMethod.POST)
+    @PostMapping
+    @RequestMapping(name="person")
     public String saveOrUpdate(@ModelAttribute PersonCommand personCommand) {
         PersonCommand saveCommand = personService.savePersonCommand(personCommand);
 
@@ -52,7 +48,8 @@ public class PersonController {
         return "person/show";
     }
 
-    @RequestMapping(value = "/persons/{id}/update", method = RequestMethod.GET)
+    @GetMapping
+    @RequestMapping(value = "/persons/{id}/update")
     public String update(@PathVariable String id, Model model) {
         model.addAttribute("person", new PersonCommand());
         return "redirect: /person/personform";
