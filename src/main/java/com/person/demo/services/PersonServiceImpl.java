@@ -67,5 +67,14 @@ public class PersonServiceImpl implements PersonService {
         return optionalPerson.get();
 }
 
+    @Override
+    @Transactional
+    public PersonCommand findCommandById(Long id) throws NotFoundException {
+        return personToPersonCommand.convert(findById(id));
+    }
+
+
+
+
 
 }

@@ -11,9 +11,10 @@ public interface PersonService {
     Set<Person> getPerson();
 
     PersonCommand savePersonCommand(PersonCommand personCommand);
-
     Set<Person> findAll();
     Person findById(Long id) throws NotFoundException;
+
+    PersonCommand findCommandById(Long id) throws NotFoundException;
 
 
 }

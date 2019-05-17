@@ -43,13 +43,16 @@
                             <td th:text="${person.lastName}">Tasty Goodnees</td>
                             <td th:text="${person.mobile}">068 539 95 49</td>
 
-                            <td> <a href="#" th:href="@{'/persons/show/'+${person.id}}"+> <small>Просмотреть</small></a></td>
-                            <td> <a href="/persons/update"> <small>Обновить</small></a></td>
+
+                            <td> <a href="#" th:href="@{'/person/update/'+${person.id}}"+> <small>Обновить</small></a></td>
+                            <td> <a href="#" th:href="@{'/person/show/'+${person.id}}"+> <small>Просмотреть</small></a></td>
+
+                            <!--<td> <a href="#" th:href="@{'/person/update/'+${person.id}}"+> <small>Обновить</small></a></td>-->
                             <td> <a href="/persons/delete"> <small>Удалить</small></a></td>
                         </tr>
 
                     </table>
-                    <p><a href="persons/new"> New Person</a></p>
+                    <p><a href="/person/new"> New Person</a></p>
                 </div>
             </div>
         </div>

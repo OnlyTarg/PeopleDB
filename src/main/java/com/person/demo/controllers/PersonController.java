@@ -16,13 +16,15 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 @Data
 public class PersonController {
+    public static final String PERSON = "person";
+    public static final String PERSONS = "persons";
     PersonService personService;
 
 
 
     @RequestMapping({"/persons","/","/index"})
-    public String persons (Model model){
-        model.addAttribute("persons", personService.findAll());
+    public String getAllPersons(Model model){
+        model.addAttribute(PERSONS, personService.findAll());
         return "/index";
     }
 
@@ -30,29 +32,29 @@ public class PersonController {
 
     @RequestMapping(value = "/person/new")
     public String newPerson(Model model) {
-        model.addAttribute("person", new PersonCommand());
+        model.addAttribute(PERSON, new PersonCommand());
         return "/person/personform";
     }
 
     @PostMapping
     @RequestMapping(name="person")
     public String saveOrUpdate(@ModelAttribute PersonCommand personCommand) {
-        PersonCommand saveCommand = personService.savePersonCommand(personCommand);
-
+        personService.savePersonCommand(personCommand);
         return "redirect:/persons";
     }
 
     @RequestMapping(value = "/person/show/{id}")
     public String showbyID(@PathVariable String id, Model model) throws NotFoundException {
-        model.addAttribute("person", personService.findById(Long.valueOf(id)));
+        model.addAttribute(PERSON, personService.findById(Long.valueOf(id)));
         return "person/show";
     }
 
-    @GetMapping
-    @RequestMapping(value = "/persons/{id}/update")
-    public String update(@PathVariable String id, Model model) {
-        model.addAttribute("person", new PersonCommand());
-        return "redirect: /person/personform";
+
+
+    @GetMapping("person/update/{id}")
+    public String updateRecipe(@PathVariable String id, Model model) throws NotFoundException {
+        model.addAttribute(PERSON, personService.findCommandById(Long.valueOf(id)));
+        return "/person/personform";
     }
 
 

@@ -13,6 +13,6 @@ public class PhoneNumbers {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     @Column(name = "Номер_телефону")
-    String PhoneNumber;
+    String phoneNumber;
 
 }
