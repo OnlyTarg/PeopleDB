@@ -17,7 +17,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<!--/*@thymesVar id="person" type="com.person.demo.domain.Person"*/-->
+<!--/*@thymesVar id="person" type="com.person.demo.commands.PersonCommand"*/-->
 <div class="container-fluid" style="margin-top: 20px">
     <div class="col-md-6 col-md-offset-3">
         <div class="pannel-group">
@@ -29,10 +29,12 @@
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3">
 
-                            <form th:action="@{/person/}" th:object="${person}" method="post">
-                                <input type="hidden" th:field="*{id}"/>
-                                <p>First Name: <input type="text" class="form-control" th:field="*{firstName}"/></p>
-                                <p>Last Name: <input type="text" class="form-control" th:field="*{lastName}"/></p>
+                            <form th:action="@{/person/personform.html}" method="post">
+                                <input type="hidden" th:field="*{person.id}"/>
+                                <p>First Name: <input type="text" class="form-control" th:field="*{person.firstName}"/>
+                                </p>
+                                <p>Last Name: <input type="text" class="form-control" th:field="*{person.lastName}"/>
+                                </p>
 
                                 <p><input type="submit" class="btn-primary" value="Submit"/> <input type="reset"
                                                                                                     class="btn-primary"

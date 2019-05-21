@@ -3,6 +3,7 @@ package com.person.demo.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Comparator;
 
 @Entity
 @NoArgsConstructor
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @Setter
 
 
-public class Person {
+public class Person implements Comparable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +32,23 @@ public class Person {
 
     @OneToOne
     PhoneNumbers phoneNumbers;
+
+
+    @Override
+    public int compareTo(Object obj) {
+        Person person2 = (Person) obj;
+        int result;
+        if((result = id.compareTo(person2.id))==0){
+            return 0;
+        }
+        if((result = id.compareTo(person2.id))>0){
+            return 1;
+        }
+        if((result = id.compareTo(person2.id))<0){
+            return -1;
+        }
+        else return 256;
+    }
 
 
 }

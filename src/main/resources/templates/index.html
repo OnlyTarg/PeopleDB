@@ -17,6 +17,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+<!--/*@thymesVar id="persons" type="java.util.List"*/-->
 <!--/*@thymesVar id="person" type="com.person.demo.domain.Person"*/-->
 <div class="container-fluid" style="margi-top: 20px">
     <div class="row">
@@ -43,12 +44,11 @@
                             <td th:text="${person.lastName}">Tasty Goodnees</td>
                             <td th:text="${person.mobile}">068 539 95 49</td>
 
-
                             <td> <a href="#" th:href="@{'/person/update/'+${person.id}}"+> <small>Обновить</small></a></td>
                             <td> <a href="#" th:href="@{'/person/show/'+${person.id}}"+> <small>Просмотреть</small></a></td>
 
                             <!--<td> <a href="#" th:href="@{'/person/update/'+${person.id}}"+> <small>Обновить</small></a></td>-->
-                            <td> <a href="/persons/delete"> <small>Удалить</small></a></td>
+                            <td> <a href="#" th:href="@{'/person/delete/'+${person.id}}"+> <small>Удалить</small></a></td>
                         </tr>
 
                     </table>

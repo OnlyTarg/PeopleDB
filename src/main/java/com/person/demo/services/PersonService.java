@@ -16,5 +16,7 @@ public interface PersonService {
 
     PersonCommand findCommandById(Long id) throws NotFoundException;
 
+    void deletePerson(Long id);
+
 
 }

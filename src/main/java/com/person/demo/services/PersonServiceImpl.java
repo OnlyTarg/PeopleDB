@@ -9,10 +9,7 @@ import javassist.NotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class PersonServiceImpl implements PersonService {
@@ -48,7 +45,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public Set<Person> findAll() {
-        Set<Person> persons = new HashSet<>();
+        Set<Person> persons = new TreeSet<>();
         Iterator<Person> iterator = personsRepository.findAll().iterator();
         while (iterator.hasNext()) {
             persons.add(iterator.next());
@@ -73,8 +70,10 @@ public class PersonServiceImpl implements PersonService {
         return personToPersonCommand.convert(findById(id));
     }
 
-
-
+    @Override
+    public void deletePerson(Long id) {
+        personsRepository.deleteById(id);
+    }
 
 
 }
