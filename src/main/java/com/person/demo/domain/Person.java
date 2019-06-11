@@ -33,6 +33,9 @@ public class Person implements Comparable {
     @OneToOne
     PhoneNumbers phoneNumbers;
 
+    @Lob
+    Byte[] image;
+
 
     @Override
     public int compareTo(Object obj) {

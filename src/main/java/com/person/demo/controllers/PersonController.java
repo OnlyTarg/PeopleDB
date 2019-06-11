@@ -8,6 +8,7 @@ import javassist.NotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +33,7 @@ public class PersonController {
     }
 
 
-
+@ResponseStatus(HttpStatus.NOT_FOUND)
     @RequestMapping(value = "/person/new")
     public String newPerson(Model model) {
         model.addAttribute(PERSON, new PersonCommand());
@@ -43,10 +44,10 @@ public class PersonController {
 
 
     /*Don't forget to add to this controller PersonCommand variable to code personService.savePersonCommand*/
-    @PostMapping
-    @RequestMapping(name="person")
+    @PostMapping("/person")
     public String saveOrUpdate(@ModelAttribute PersonCommand personCommand) {
         personService.savePersonCommand(personCommand);
+        log.debug("I'm in Person Post.method");
         return "redirect:/persons";
     }
 

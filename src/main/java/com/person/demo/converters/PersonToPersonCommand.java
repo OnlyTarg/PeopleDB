@@ -25,6 +25,7 @@ public class PersonToPersonCommand implements Converter<Person, PersonCommand> {
         personCommand.setFirstName(source.getFirstName());
         personCommand.setLastName(source.getLastName());
         personCommand.setMobile(source.getMobile());
+        personCommand.setImage(source.getImage());
         return personCommand;
 
     }

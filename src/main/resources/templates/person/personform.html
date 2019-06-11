@@ -29,13 +29,15 @@
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3">
 
-                            <form th:action="@{/person/personform.html}" method="post">
+                            <form th:action="@{/person/}" method="post">
                                 <input type="hidden" th:field="*{person.id}"/>
                                 <p>First Name: <input type="text" class="form-control" th:field="*{person.firstName}"/>
                                 </p>
                                 <p>Last Name: <input type="text" class="form-control" th:field="*{person.lastName}"/>
                                 </p>
-
+                                <p><a href="#" th:href="@{'/person/image/'+${person.id}}" +>
+                                    <small>Изменить фото</small>
+                                </a></p>
                                 <p><input type="submit" class="btn-primary" value="Submit"/> <input type="reset"
                                                                                                     class="btn-primary"
                                                                                                     value="Reset"/></p>
