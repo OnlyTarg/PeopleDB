@@ -29,7 +29,7 @@ public class PersonController {
     public String getAllPersons(Model model) throws NotFoundException {
         model.addAttribute(PERSONS, personService.findAll());
         log.debug("I'm at getAllPersons");
-        return "/index";
+        return "index.html";
     }
 
 
@@ -37,7 +37,7 @@ public class PersonController {
     @RequestMapping(value = "/person/new")
     public String newPerson(Model model) {
         model.addAttribute(PERSON, new PersonCommand());
-        return "/person/personform";
+        return "person/personform";
     }
 
 
@@ -65,7 +65,7 @@ public class PersonController {
     @GetMapping(value = "person/update/{id}")
     public String updatePerson(@PathVariable String id, Model model) throws NotFoundException {
         model.addAttribute(PERSON, personService.findCommandById(Long.valueOf(id)));
-        return "/person/personform";
+        return "person/personform";
     }
 
     @GetMapping(value = "person/delete/{id}")
