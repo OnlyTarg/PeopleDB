@@ -22,10 +22,15 @@ public class PersonToPersonCommand implements Converter<Person, PersonCommand> {
 
         PersonCommand personCommand = new PersonCommand();
         personCommand.setId(source.getId());
+
+        personCommand.setRank(source.getRank());
         personCommand.setFirstName(source.getFirstName());
         personCommand.setLastName(source.getLastName());
+        personCommand.setFatherName(source.getFatherName());
         personCommand.setMobile(source.getMobile());
-        personCommand.setImage(source.getImage());
+        personCommand.setService(source.getService());
+        personCommand.setPosition(source.getPosition());
+        personCommand.setBirthday(source.getBirthday());
         return personCommand;
 
     }

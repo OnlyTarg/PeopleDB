@@ -18,7 +18,6 @@ public class DataLoad implements ApplicationListener<ContextRefreshedEvent> {
     PersonsRepository personsRepository;
 
 
-
     public void init() {
         personsRepository.saveAll(getPersons());
     }
@@ -27,19 +26,39 @@ public class DataLoad implements ApplicationListener<ContextRefreshedEvent> {
         Set<Person> set = new HashSet<>();
 
         Person person = new Person();
-        person.setFirstName("Pavel");
-        person.setLastName("Avdonin");
+
+        person.setRank("майор");
+        person.setLastName("Авдонін");
+        person.setFirstName("Павло");
+        person.setFatherName("Олексійович");
+        person.setBirthday("03.04.89");
+        person.setMobile("0685399549");
+        person.setService("8221");
+        person.setPosition("Помічник начальника зміни ЦУС");
+
         set.add(person);
 
 
         Person person1 = new Person();
-        person1.setFirstName("Julia");
-        person1.setLastName("Avdonina");
+        person1.setRank("майор");
+        person1.setLastName("Крючков");
+        person1.setFirstName("Андрій");
+        person1.setFatherName("Миколайович");
+        person1.setBirthday("23.07.83");
+        person1.setMobile("0685658595");
+        person1.setService("8117");
+        person1.setPosition("Начальник впс \"Білолуцьк\"");
         set.add(person1);
 
         Person person2 = new Person();
-        person2.setFirstName("Strelec");
-        person2.setLastName("Leonid");
+        //person2.setRank("Підполковник");
+        person2.setLastName("Мартич");
+        person2.setFirstName("Роман");
+        person2.setFatherName("Петрович");
+        person2.setBirthday("11.02.75");
+        person2.setMobile("0934706243");
+        person2.setService("8458");
+        person2.setPosition("Начальник зміни ЦУС РуМО");
         set.add(person2);
 
         return set;

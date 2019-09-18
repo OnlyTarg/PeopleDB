@@ -5,10 +5,11 @@
     <title>PEOPLE!</title>
 
 
-    <!--Настройка viewport -->
+     <!--Настройка viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Подключаем Bootstrap CSS -->
+    <!--<link rel="stylesheet" href="/css/bootstrap.css" >-->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -18,78 +19,8 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-
-
 </head>
 <body>
-
-
-<div class="container">
-    <style>
-        a {
-            font-family: 'Times New Roman', Times, serif; /* Шрифт с засечками */
-            font-style: italic; /* Курсивное начертание */
-            font-size: 26px;
-            color: black;
-        }
-        p {
-            font-family: 'Times New Roman', Times, serif; /* Шрифт с засечками */
-            font-style: italic; /* Курсивное начертание */
-            font-size: 20px;
-            color: black;
-        }
-    </style>
-    <div class="row">
-        <div class="col-lg-11">
-            <img src="https://dpsu.gov.ua/templates/scms_default/images/logo.png" class="img-fluid">
-
-        </div>
-        <div class="col-lg-1">
-            <a href="#" >
-                <small>Увійти</small>
-            </a>
-        </div>
-
-        <!--<div class="col-lg-1">
-            <a href="#" th:href="@{'/person/show/'+${person.id}}" +>
-                <small>Увійти</small>
-            </a>
-        </div>-->
-    </div>
-
-
-    <br>
-
-    <div class="row">
-        <div class="col-lg-8">
-            <a href="/search" >
-                <small>Пошук по Прізвищу</small>
-            </a>
-            <br>
-            <a href="#">
-                <small>Пошук по Підрозділу</small>
-            </a>
-
-            <!--<a href="#" th:href="@{'/person/show/'+${person.id}}" +>
-                <small>Пошук по Прізвищу</small>
-            </a>
-            <br>
-            <a href="#" th:href="@{'/person/show/'+${person.id}}" +>
-                <small>Пошук по Підрозділу</small>
-            </a>-->
-        </div>
-        <div class="col-lg-4">
-            <p>Сьогодні день народження святкують</p>
-            <p> Сагін А.А.   0685399549 / 82-39</p>
-            <p> Гонтар В.А.  0978568456 / 82-65</p>
-
-        </div>
-    </div>
-
-
-
-
-</div>
 <!--/*@thymesVar id="persons" type="java.util.List"*/-->
 <!--/*@thymesVar id="person" type="com.person.demo.domain.Person"*/-->
 <div class="container-fluid" style="margi-top: 20px">
@@ -108,6 +39,7 @@
                             <th>ID</th>
                             <th>Фамилия</th>
                             <th>Имя</th>
+                            <th>Мобильный</th>
                         </tr>
                         </thead>
 
@@ -132,7 +64,6 @@
     </div>
 </div>
 </div>
-
 
 <script src="css/bootstrap.js"></script>
 

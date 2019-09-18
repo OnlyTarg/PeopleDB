@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>PEOPLE!</title>
+
+
+    <!--Настройка viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Подключаем Bootstrap CSS -->
+    <!--<link rel="stylesheet" href="/css/bootstrap.css" >-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <style>
+        a {
+            font-family: 'Times New Roman', Times, serif; /* Шрифт с засечками */
+            font-style: italic; /* Курсивное начертание */
+            font-size: 26px;
+            color: black;
+        }
+
+        p {
+            font-family: 'Times New Roman', Times, serif; /* Шрифт с засечками */
+            font-style: italic; /* Курсивное начертание */
+            font-size: 20px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-11">
+            <img src="https://dpsu.gov.ua/templates/scms_default/images/logo.png" class="img-fluid">
+
+        </div>
+
+        <div class="col-lg-1">
+            <a href="#">
+                <small>Увійти</small>
+            </a>
+        </div>
+
+        <!--<div class="col-lg-1">
+            <a href="#" th:href="@{'/person/show/'+${person.id}}" +>
+                <small>Увійти</small>
+            </a>
+        </div>-->
+    </div>
+
+    <br>
+    <!-- <div class="panel-body">
+         <div class="row">
+             <div class="col-md-6 col-md-offset-3">
+                 <form th:action="@{/person/}" method="post">
+
+                     <input type="hidden" th:field="*{person.id}"/>
+                     <p>Введіть прізвище: <input type="text" class="form-control" th:field="*{person.firstName}"/>
+                     </p>
+
+                     <input type="submit" class="btn-primary" value="ПОШУК"/>
+                 </form>
+
+             </div>
+         </div>
+     </div>-->
+
+</div>
+
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="pannel-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h1 class="panel-title">Edit Person Information</h1>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+
+                            <form th:action="@{/searchadmin/}"  method="post">
+
+
+                                <p>First Name:
+                                <input type="text" class="form-control" th:field="*{person.firstName}"/>
+                                </p>
+
+
+                                <p><input type="submit" class="btn-primary" value="Пошук"/> </p>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="css/bootstrap.js"></script>
+
+</body>
+</html>

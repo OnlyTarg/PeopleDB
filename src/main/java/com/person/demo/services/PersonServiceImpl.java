@@ -6,11 +6,14 @@ import com.person.demo.converters.PersonToPersonCommand;
 import com.person.demo.domain.Person;
 import com.person.demo.repositories.PersonsRepository;
 import javassist.NotFoundException;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
+@Slf4j
 @Service
 public class PersonServiceImpl implements PersonService {
 
@@ -75,5 +78,13 @@ public class PersonServiceImpl implements PersonService {
         personsRepository.deleteById(id);
     }
 
+    @Override
+    public Set<Person> findByFirstName(String name) {
+        log.debug("At findByName "  + "name is "+ name);
+        Set<Person> persons = new HashSet<>();
 
+        persons = personsRepository.findPersonByFirstName(name);
+        log.debug("At findByName "  + "set is "+ persons.toString());
+        return persons;
+    }
 }
