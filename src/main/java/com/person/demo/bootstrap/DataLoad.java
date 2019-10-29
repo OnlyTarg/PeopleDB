@@ -3,6 +3,7 @@ package com.person.demo.bootstrap;
 import com.person.demo.domain.Person;
 import com.person.demo.repositories.NotesRepositories;
 import com.person.demo.repositories.PersonsRepository;
+import com.person.demo.services.PersonService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -16,10 +17,13 @@ import java.util.Set;
 public class DataLoad implements ApplicationListener<ContextRefreshedEvent> {
     NotesRepositories notesRepositories;
     PersonsRepository personsRepository;
+    PersonService personService;
 
 
     public void init() {
-        personsRepository.saveAll(getPersons());
+        if(personService.findAll().size()==0) {
+            personsRepository.saveAll(getPersons());
+        }
     }
 
     public Set<Person> getPersons() {
@@ -51,7 +55,7 @@ public class DataLoad implements ApplicationListener<ContextRefreshedEvent> {
         set.add(person1);
 
         Person person2 = new Person();
-        //person2.setRank("Підполковник");
+        person2.setRank("підполковник");
         person2.setLastName("Мартич");
         person2.setFirstName("Роман");
         person2.setFatherName("Петрович");

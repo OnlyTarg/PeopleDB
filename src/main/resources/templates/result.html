@@ -37,23 +37,29 @@
                         <thead class="thead-inverse">
                         <tr>
                             <th>ID</th>
-                            <th>Фамилия</th>
-                            <th>Имя</th>
-                            <th>Мобильный</th>
+                            <th>В/зв</th>
+                            <th>Прізвищє</th>
+                            <th>Ім'я</th>
+                            <th>По Батькові</th>
                         </tr>
                         </thead>
 
                         <tr th:each="person : ${persons}">
                             <td th:text="${person.id}">1</td>
-                            <td th:text="${person.firstName}">123</td>
-                            <td th:text="${person.lastName}">Tasty Goodnees</td>
-                            <td th:text="${person.mobile}">068 539 95 49</td>
+                            <td th:text="${person.rank}">підполковник</td>
+                            <td th:text="${person.firstName}">Мартич</td>
+                            <td th:text="${person.lastName}">Роман</td>
+                            <td th:text="${person.fatherName}">Петрович</td>
 
+                          <!--  <td> <a href="#" th:href="@{'/person/update/'+${person.id}}"+> <small>Обновить</small></a></td>
+                            <td> <a href="#" th:href="@{'/person/show/'+${person.id}}"+> <small>Просмотреть</small></a></td>
 
+                            &lt;!&ndash;<td> <a href="#" th:href="@{'/person/update/'+${person.id}}"+> <small>Обновить</small></a></td>&ndash;&gt;
+                            <td> <a href="#" th:href="@{'/person/delete/'+${person.id}}"+> <small>Удалить</small></a></td>-->
                         </tr>
 
                     </table>
-
+                    <p><a href="/person/new"> New Person</a></p>
                 </div>
             </div>
         </div>
@@ -65,14 +71,3 @@
 
 </body>
 </html>
-
-
-
-<!--<td> <a href="#" th:href="@{'/person/update/'+${person.id}}"+> <small>Обновить</small></a></td>
-                            <td> <a href="#" th:href="@{'/person/show/'+${person.id}}"+> <small>Просмотреть</small></a></td>
-
-                            &lt;!&ndash;<td> <a href="#" th:href="@{'/person/update/'+${person.id}}"+> <small>Обновить</small></a></td>&ndash;&gt;
-                            <td> <a href="#" th:href="@{'/person/delete/'+${person.id}}"+> <small>Удалить</small></a></td>-->
-
-
-<!-- <p><a href="/person/new"> New Person</a></p>-->
