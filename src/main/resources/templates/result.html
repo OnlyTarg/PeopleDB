@@ -22,7 +22,7 @@
 </head>
 <body>
 <!--/*@thymesVar id="persons" type="java.util.List"*/-->
-<!--/*@thymesVar id="person" type="com.person.demo.domain.Person"*/-->
+
 <div class="container-fluid" style="margi-top: 20px">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -41,15 +41,21 @@
                             <th>Прізвищє</th>
                             <th>Ім'я</th>
                             <th>По Батькові</th>
+                            <th>Телефон</th>
                         </tr>
                         </thead>
 
-                        <tr th:each="person : ${persons}">
-                            <td th:text="${person.id}">1</td>
+                        <!--/*@thymesVar id="person" type="com.person.demo.domain.Person"*/-->
+                        <tr th:each="person : ${persons}" href="#" >
+
+
+                            <td th:text="${person.id}">1</a></td>
+
                             <td th:text="${person.rank}">підполковник</td>
-                            <td th:text="${person.firstName}">Мартич</td>
-                            <td th:text="${person.lastName}">Роман</td>
+                            <td> <a href="#" th:href="@{'/person/show/'+${person.id}}"th:text="${person.lastName}">Мартич</a></td>
+                            <td th:text="${person.firstName}">Роман</td>
                             <td th:text="${person.fatherName}">Петрович</td>
+                            <td th:text="${person.mobile}">0685399549</td>
 
                           <!--  <td> <a href="#" th:href="@{'/person/update/'+${person.id}}"+> <small>Обновить</small></a></td>
                             <td> <a href="#" th:href="@{'/person/show/'+${person.id}}"+> <small>Просмотреть</small></a></td>

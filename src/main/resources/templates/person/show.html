@@ -4,10 +4,19 @@
     <meta charset="UTF-8"/>
     <title>PEOPLE!</title>
     <!--Настройка viewport -->
+    <!--Настройка viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Подключаем Bootstrap CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.css" >
+    <!--<link rel="stylesheet" href="/css/bootstrap.css" >-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
 <!--/*@thymesVar id="person" type="com.person.demo.domain.Person"*/-->
@@ -16,31 +25,45 @@
         <div class="pannel-group">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h1 class="panel-title">Edit Person Information</h1>
+                    <h1 class="panel-title">Персональна інформація</h1>
                 </div>
                 <div class="panel-body">
                     <div class="row">
+                        <div class="col-md-4">
+                            <!--<img th:src="@{'/person/personimage/' + (${person.id}  ? :'default-image.jpg') }">-->
 
 
-                        <div class="col-md-3">
-                            <img th:src="@{'/person/personimage/' + ${person.id} }"
-                                 width="200" height="200">
+                            <img  th:src="@{'/person/personimage/' + ${person.id} }"
+                                  width="200" height="200">
                         </div>
-                        <div class="col-md-6 col-md-offset-3">
+                        <div class="col-md-8 ">
 
 
                             <tr>
-                                <p>First Name</p>
-                                <p th:text="${person.firstName}"><b>Фамилия</b></p>
-                                <p>Last Name</p>
-                                <p th:text="${person.lastName}"><b>Имя</b></p>
-                                <p>Mobile</p>
-                                <p th:text="${person.mobile}">Мобильный телефон</p>
+                                <td th:text="${person.rank}">майор</td>
+                                <td th:text="${person.lastName}">ХАЧИК</td>
+
+                                <td th:text="${person.firstName}">Абдул</td>
+
+                                <td th:text="${person.fatherName}">Абдулович</td>
                             </tr>
-                            <p><a href="/persons">Назад</a></p>
+                            <br>
+                            <br>
+                            <tr>
+                                <td><b>Телефон:</b></td>
+                                <td th:text="${person.mobile}">0685399549</td>
+                            </tr>
+                            <br>
+                            <tr>
+                                <td><b>Посада:</b></td>
+                                <td th:text="${person.position}">Начальник АЮД</td>
+                            </tr>
+                            <br>
+
                         </div>
 
                     </div>
+                    <p align="left"><a href="/index" >Назад</a></p>
                 </div>
             </div>
         </div>

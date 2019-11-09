@@ -15,8 +15,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 
 @Controller
@@ -60,6 +63,19 @@ public class ImageController {
 
             IOUtils.copy(is, response.getOutputStream());
         }
+        else {
+            File file = new File("https://dpsu.gov.ua/templates/scms_default/images/logo.png");
+        Path path = file.toPath();
+
+            byte[] bytearray= Files.readAllBytes(path);
+
+            response.setContentType("image/jpeg");
+            InputStream is = new ByteArrayInputStream(bytearray);
+
+
+            IOUtils.copy(is, response.getOutputStream());
+        }
+
     }
 
 }

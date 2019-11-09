@@ -40,6 +40,7 @@ public class DataLoad implements ApplicationListener<ContextRefreshedEvent> {
         person.setService("8221");
         person.setPosition("Помічник начальника зміни ЦУС");
 
+
         set.add(person);
 
 
